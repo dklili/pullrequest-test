@@ -1,0 +1,36 @@
+首先我用了两个账号模拟两个人进行pull request，首先我用dkmini-frank这个账号创建了主要的项目放在了main repositories里面。
+随后我用第二账号dklili来fork dkmini-frank这个账户来模拟pull request。
+
+main repositories:  https://github.com/dkmini-frank/project3.git
+
+具体步骤
+1. fork需要的repositories
+2. 然后将其clone到本地，例如我第二账户的用户名为dklili则我fork的repos为 https://github.com/dklili/project3.git
+
+    命令行中会出现下列类似代码：
+        $ git clone https://github.com/dklili/project3.git
+        > Cloning into `XXX`...
+        > remote: Counting objects: 10, done.
+        > remote: Compressing objects: 100% (8/8), done.
+        > remove: Total 10 (delta 1), reused 10 (delta 1)
+        > Unpacking objects: 100% (10/10), done.
+
+3. 进入命令行输入git remote -v：
+    命令行中会出现下列类似代码：
+        $ git remote -v
+        > origin  https://github.com/dklili/project3.git (fetch)
+        > origin  https://github.com/dklili/project3.git (push)
+
+4. 设置fork的repositories的upstream, 这里的upstream为main repositories的地址，主要进行一个类似与订阅的功能。
+        $ git remote add upstream https://github.com/dkmini-frank/project3.git
+
+    随后输入git remote -v进行检查
+        命令行中会出现下列类似代码：
+            origin   https://github.com/dklili/pullrequest-test.git (fetch)
+            origin   https://github.com/dklili/pullrequest-test.git (push)
+            upstream https://github.com/dkmini-frank/pullrequest-test.git (fetch)
+            upstream https://github.com/dkmini-frank/pullrequest-test.git (push)
+
+5. 随后建立一个新的branch分支，切换到这个branch分支进行add和commit还有push操作。
+6. 在所有的操作结束后，进入github你所fork的repos点击pull request,随后发送一个pull request。
+7. pull request操作结束后，可以选择你想要对你的code进行review的人，随后等待review结束，收到review结束信息，进行marge操作。
